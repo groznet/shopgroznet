@@ -1,0 +1,106 @@
+/* Custom WooCommerce & GrozNet Styling Enhancements */
+
+/* Star Rating Styling */
+.star-rating {
+    overflow: hidden;
+    position: relative;
+    height: 1.2em;
+    line-height: 1.2;
+    font-size: 0.9em;
+    width: 5.4em;
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', sans-serif;
+    font-weight: 900;
+    color: #f59e0b;
+    display: inline-block;
+}
+
+.star-rating::before {
+    content: "\f005\f005\f005\f005\f005";
+    color: #d1d5db;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.star-rating span {
+    overflow: hidden;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-top: 1.5em;
+}
+
+.star-rating span::before {
+    content: "\f005\f005\f005\f005\f005";
+    top: 0;
+    position: absolute;
+    left: 0;
+}
+
+/* Quantity Controls */
+.quantity input[type="number"] {
+    -moz-appearance: textfield;
+}
+.quantity input[type="number"]::-webkit-outer-spin-button,
+.quantity input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Variation Form Table */
+.variations select {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    font-size: 0.875rem;
+    outline: none;
+}
+.dark .variations select {
+    border-color: #262626;
+    background-color: #171717;
+    color: #ffffff;
+}
+
+/* Payment Methods Accordion */
+.wc_payment_methods {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wc_payment_method {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: #ffffff;
+}
+.dark .wc_payment_method {
+    border-color: #262626;
+    background-color: #171717;
+}
+
+.wc_payment_method label {
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment_box {
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+.dark .payment_box {
+    background-color: #262626;
+    color: #a3a3a3;
+}

@@ -1,0 +1,177 @@
+/*
+Theme Name: Min
+Theme URI: https://github.com/groznet/min-wp-wc-theme
+Author: groznet
+Description: An HTML-first, minimal-CSS WordPress + WooCommerce theme. Semantic markup and the browser's own rendering do almost all of the work; CSS steps in only where HTML alone cannot (fluid widths, overflow, media sizing, a couple of small layout adjustments).
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: min
+*/
+
+/* === Base === */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+}
+
+img,
+svg,
+video,
+iframe,
+embed,
+object {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Long-form reading content gets a comfortable line length; layout regions
+   (nav, product grids, tables) are left free to use the full body width. */
+.entry-content,
+.page-content,
+.comment-content {
+	max-width: 42rem;
+}
+
+/* Vertical rhythm between the major page regions and between looped posts:
+   these elements have no browser-default margin of their own, so without
+   this the header, content and footer would sit flush against each other. */
+header,
+main,
+aside,
+footer {
+	margin-block: 1.5rem;
+}
+
+.type-post {
+	margin-block: 2rem;
+}
+
+/* === Accessibility === */
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.skip-link {
+	left: -9999px;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+}
+
+.skip-link:focus {
+	left: 0.5rem;
+	top: 0.5rem;
+	width: auto;
+	height: auto;
+	padding: 0.5rem 1rem;
+	background: #fff;
+	color: #000;
+	clip: auto;
+	clip-path: none;
+}
+
+:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* === Navigation === */
+
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1.25rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* === Tables === */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* WooCommerce cart/checkout/order tables can end up wider than a small
+   viewport; scroll the table itself rather than the whole page. */
+.woocommerce table.shop_table {
+	display: block;
+	overflow-x: auto;
+}
+
+/* === Forms === */
+
+input,
+textarea,
+select,
+button {
+	max-width: 100%;
+	font: inherit;
+}
+
+label {
+	display: block;
+}
+
+/* === WooCommerce product grid === */
+
+.woocommerce ul.products {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.woocommerce ul.products li.product {
+	flex: 1 1 14rem;
+	max-width: 18rem;
+}
+
+.woocommerce-product-gallery__wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image {
+	flex: 1 1 100%;
+}
+
+/* === Small screens === */
+
+@media (max-width: 40rem) {
+	.woocommerce ul.products li.product {
+		flex-basis: 100%;
+		max-width: none;
+	}
+}
