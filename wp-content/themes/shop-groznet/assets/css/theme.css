@@ -1,0 +1,378 @@
+/**
+ * Theme CSS.
+ *
+ * Tailwind's preflight is on (as on the static site), so anything WordPress or
+ * a plugin prints without theme classes arrives unstyled. This file covers
+ * exactly those cases and nothing else:
+ *
+ *   1. Post/page content from the editor (.entry-content).
+ *   2. Navigation sub-menus, which need positioning that utilities on the
+ *      markup cannot express because wp_nav_menu() builds the <ul>.
+ *   3. Comments, pagination and the search form.
+ *
+ * Colours reference --sgz-brand-* custom properties, which are generated from
+ * sgz_design_tokens() in inc/enqueue.php. Neutrals below are the stock
+ * Tailwind `neutral` ramp, which is what the static site uses for canvas,
+ * surfaces, text and borders.
+ */
+
+:root {
+	--sgz-neutral-50: #fafafa;
+	--sgz-neutral-100: #f5f5f5;
+	--sgz-neutral-200: #e5e5e5;
+	--sgz-neutral-300: #d4d4d4;
+	--sgz-neutral-400: #a3a3a3;
+	--sgz-neutral-500: #737373;
+	--sgz-neutral-600: #525252;
+	--sgz-neutral-700: #404040;
+	--sgz-neutral-800: #262626;
+	--sgz-neutral-900: #171717;
+	--sgz-neutral-950: #0a0a0a;
+
+	--sgz-radius-control: 0.75rem; /* rounded-xl  */
+	--sgz-radius-surface: 1rem;    /* rounded-2xl */
+}
+
+/* -------------------------------------------------------------------------
+ * 1. Editor content
+ * ---------------------------------------------------------------------- */
+
+.entry-content {
+	color: var(--sgz-neutral-600);
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+.dark .entry-content {
+	color: var(--sgz-neutral-400);
+}
+
+.entry-content > * + * {
+	margin-top: 1.25rem;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+	color: var(--sgz-neutral-900);
+	font-family: serif;
+	font-weight: 700;
+	letter-spacing: -0.025em;
+	line-height: 1.2;
+	margin-top: 2.5rem;
+}
+
+.dark .entry-content :is(h1, h2, h3, h4, h5, h6) {
+	color: #ffffff;
+}
+
+.entry-content h1 { font-size: 2.25rem; }
+.entry-content h2 { font-size: 1.875rem; }
+.entry-content h3 { font-size: 1.5rem; }
+.entry-content h4 { font-size: 1.25rem; }
+.entry-content h5 { font-size: 1.125rem; }
+.entry-content h6 { font-size: 1rem; }
+
+.entry-content a {
+	color: var(--sgz-brand-600);
+	font-weight: 500;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.entry-content a:hover {
+	color: var(--sgz-brand-700);
+}
+
+.dark .entry-content a {
+	color: var(--sgz-brand-400);
+}
+
+.dark .entry-content a:hover {
+	color: var(--sgz-brand-300);
+}
+
+.entry-content strong { font-weight: 700; color: var(--sgz-neutral-900); }
+.dark .entry-content strong { color: #ffffff; }
+.entry-content em { font-style: italic; }
+
+.entry-content ul,
+.entry-content ol {
+	padding-left: 1.5rem;
+}
+
+.entry-content ul { list-style: disc; }
+.entry-content ol { list-style: decimal; }
+.entry-content li + li { margin-top: 0.375rem; }
+
+.entry-content blockquote {
+	border-left: 3px solid var(--sgz-brand-600);
+	padding-left: 1.25rem;
+	font-style: italic;
+	color: var(--sgz-neutral-700);
+}
+
+.dark .entry-content blockquote { color: var(--sgz-neutral-300); }
+
+.entry-content code {
+	background: var(--sgz-neutral-100);
+	border-radius: 0.375rem;
+	font-size: 0.875em;
+	padding: 0.125rem 0.375rem;
+}
+
+.dark .entry-content code { background: var(--sgz-neutral-800); }
+
+.entry-content pre {
+	background: var(--sgz-neutral-900);
+	border-radius: var(--sgz-radius-surface);
+	color: var(--sgz-neutral-100);
+	overflow-x: auto;
+	padding: 1.25rem;
+}
+
+.entry-content pre code { background: none; padding: 0; }
+
+.entry-content img,
+.entry-content iframe,
+.entry-content video {
+	border-radius: var(--sgz-radius-surface);
+	max-width: 100%;
+	height: auto;
+}
+
+.entry-content hr {
+	border: 0;
+	border-top: 1px solid var(--sgz-neutral-200);
+	margin: 2.5rem 0;
+}
+
+.dark .entry-content hr { border-color: var(--sgz-neutral-800); }
+
+.entry-content table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 0.875rem;
+}
+
+.entry-content :is(th, td) {
+	border-bottom: 1px solid var(--sgz-neutral-200);
+	padding: 0.625rem 0.75rem;
+	text-align: left;
+}
+
+.dark .entry-content :is(th, td) { border-color: var(--sgz-neutral-800); }
+
+.entry-content th { color: var(--sgz-neutral-900); font-weight: 700; }
+.dark .entry-content th { color: #ffffff; }
+
+.entry-content figcaption {
+	color: var(--sgz-neutral-500);
+	font-size: 0.8125rem;
+	margin-top: 0.5rem;
+}
+
+/* Alignment classes WordPress adds to editor content. */
+.entry-content .alignleft { float: left; margin: 0 1.5rem 1rem 0; }
+.entry-content .alignright { float: right; margin: 0 0 1rem 1.5rem; }
+.entry-content .aligncenter { margin-left: auto; margin-right: auto; display: block; }
+.entry-content .alignwide { max-width: 1100px; margin-left: auto; margin-right: auto; }
+.entry-content .alignfull { max-width: none; }
+
+/* -------------------------------------------------------------------------
+ * 2. Navigation
+ *
+ * Link classes come from the nav_menu_link_attributes filter in
+ * inc/template-tags.php. Only sub-menu positioning lives here, because it
+ * needs :focus-within and :hover on an element wp_nav_menu() generates.
+ * ---------------------------------------------------------------------- */
+
+.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation .sub-menu {
+	background: #ffffff;
+	border: 1px solid rgb(229 229 229 / 0.6);
+	border-radius: var(--sgz-radius-surface);
+	box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.15);
+	left: 0;
+	min-width: 14rem;
+	opacity: 0;
+	padding: 0.5rem;
+	pointer-events: none;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	transform: translateY(-0.25rem);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	z-index: 50;
+}
+
+.dark .main-navigation .sub-menu {
+	background: var(--sgz-neutral-900);
+	border-color: rgb(38 38 38 / 0.6);
+}
+
+.main-navigation li:hover > .sub-menu,
+.main-navigation li:focus-within > .sub-menu {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+/* Current page marker, matching the brand underline on the static site. */
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a {
+	color: var(--sgz-brand-600);
+}
+
+.dark .main-navigation .current-menu-item > a,
+.dark .main-navigation .current_page_item > a {
+	color: var(--sgz-brand-400);
+}
+
+/* The mobile menu is a plain stacked list; no absolute positioning. */
+#sgz-mobile-menu .sub-menu,
+.footer-navigation .sub-menu {
+	background: none;
+	border: 0;
+	box-shadow: none;
+	opacity: 1;
+	padding: 0 0 0 1rem;
+	pointer-events: auto;
+	position: static;
+	transform: none;
+}
+
+.footer-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * 3. Pagination, comments, search form
+ * ---------------------------------------------------------------------- */
+
+.sgz-pagination .page-numbers {
+	align-items: center;
+	border: 1px solid var(--sgz-neutral-200);
+	border-radius: var(--sgz-radius-control);
+	color: var(--sgz-neutral-600);
+	display: inline-flex;
+	font-size: 0.875rem;
+	font-weight: 500;
+	justify-content: center;
+	min-width: 2.75rem;
+	padding: 0.625rem 0.875rem;
+	transition: all 0.2s ease;
+}
+
+.dark .sgz-pagination .page-numbers {
+	border-color: var(--sgz-neutral-800);
+	color: var(--sgz-neutral-400);
+}
+
+.sgz-pagination .page-numbers:hover {
+	border-color: var(--sgz-brand-500);
+	color: var(--sgz-brand-600);
+}
+
+.sgz-pagination .page-numbers.current {
+	background: var(--sgz-brand-600);
+	border-color: var(--sgz-brand-600);
+	box-shadow: 0 4px 6px -1px rgb(37 99 235 / 0.3);
+	color: #ffffff;
+}
+
+.sgz-pagination .page-numbers.dots {
+	border-color: transparent;
+}
+
+.comment-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.comment-list .children {
+	list-style: none;
+	margin-left: 1.5rem;
+	padding: 0;
+}
+
+.comment-form :is(input[type="text"], input[type="email"], input[type="url"], textarea) {
+	background: var(--sgz-neutral-50);
+	border: 1px solid var(--sgz-neutral-200);
+	border-radius: var(--sgz-radius-control);
+	color: var(--sgz-neutral-900);
+	font-size: 0.875rem;
+	padding: 0.75rem 1rem;
+	transition: all 0.2s ease;
+	width: 100%;
+}
+
+.dark .comment-form :is(input[type="text"], input[type="email"], input[type="url"], textarea) {
+	background: var(--sgz-neutral-950);
+	border-color: var(--sgz-neutral-800);
+	color: #ffffff;
+}
+
+.comment-form :is(input, textarea):focus {
+	border-color: var(--sgz-brand-500);
+	box-shadow: 0 0 0 2px rgb(59 130 246 / 0.3);
+	outline: none;
+}
+
+.comment-form .submit {
+	background: var(--sgz-brand-600);
+	border: 0;
+	border-radius: var(--sgz-radius-control);
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 0.875rem;
+	font-weight: 700;
+	padding: 0.875rem 1.5rem;
+	transition: background 0.2s ease;
+}
+
+.comment-form .submit:hover {
+	background: var(--sgz-brand-700);
+}
+
+/* -------------------------------------------------------------------------
+ * 4. Utilities
+ * ---------------------------------------------------------------------- */
+
+/* WordPress and WooCommerce both use the hidden attribute to hide elements
+   from assistive technology; Tailwind's `display` utilities can otherwise win. */
+[hidden] {
+	display: none !important;
+}
+
+/* Respect reduced motion for the transitions used across the theme. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Header column separators (see sgz_header_bg()): desktop only. */
+@media (min-width: 768px) {
+	#address[style*="--sgz-bg"],
+	#contacts[style*="--sgz-bg"] { background-image: var(--sgz-bg); }
+}

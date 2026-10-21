@@ -1,0 +1,311 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"custom": true,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{
+					"slug": "brand-50",
+					"color": "#eff6ff",
+					"name": "Brand 50"
+				},
+				{
+					"slug": "brand-100",
+					"color": "#dbeafe",
+					"name": "Brand 100"
+				},
+				{
+					"slug": "brand-200",
+					"color": "#bfdbfe",
+					"name": "Brand 200"
+				},
+				{
+					"slug": "brand-300",
+					"color": "#93c5fd",
+					"name": "Brand 300"
+				},
+				{
+					"slug": "brand-400",
+					"color": "#60a5fa",
+					"name": "Brand 400"
+				},
+				{
+					"slug": "brand-500",
+					"color": "#3b82f6",
+					"name": "Brand 500"
+				},
+				{
+					"slug": "brand-600",
+					"color": "#2563eb",
+					"name": "Brand 600"
+				},
+				{
+					"slug": "brand-700",
+					"color": "#1d4ed8",
+					"name": "Brand 700"
+				},
+				{
+					"slug": "brand-800",
+					"color": "#1e40af",
+					"name": "Brand 800"
+				},
+				{
+					"slug": "brand-900",
+					"color": "#1e3a8a",
+					"name": "Brand 900"
+				},
+				{
+					"slug": "brand-950",
+					"color": "#172554",
+					"name": "Brand 950"
+				},
+				{
+					"slug": "neutral-50",
+					"color": "#fafafa",
+					"name": "Neutral 50"
+				},
+				{
+					"slug": "neutral-100",
+					"color": "#f5f5f5",
+					"name": "Neutral 100"
+				},
+				{
+					"slug": "neutral-200",
+					"color": "#e5e5e5",
+					"name": "Neutral 200"
+				},
+				{
+					"slug": "neutral-400",
+					"color": "#a3a3a3",
+					"name": "Neutral 400"
+				},
+				{
+					"slug": "neutral-500",
+					"color": "#737373",
+					"name": "Neutral 500"
+				},
+				{
+					"slug": "neutral-600",
+					"color": "#525252",
+					"name": "Neutral 600"
+				},
+				{
+					"slug": "neutral-800",
+					"color": "#262626",
+					"name": "Neutral 800"
+				},
+				{
+					"slug": "neutral-900",
+					"color": "#171717",
+					"name": "Neutral 900"
+				},
+				{
+					"slug": "neutral-950",
+					"color": "#0a0a0a",
+					"name": "Neutral 950"
+				},
+				{
+					"slug": "white",
+					"color": "#ffffff",
+					"name": "White"
+				},
+				{
+					"slug": "amber-50",
+					"color": "#fffbeb",
+					"name": "Amber 50"
+				},
+				{
+					"slug": "amber-800",
+					"color": "#92400e",
+					"name": "Amber 800"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "1280px",
+			"wideSize": "1280px"
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"units": [
+				"px",
+				"rem",
+				"em",
+				"%",
+				"vh",
+				"vw"
+			]
+		},
+		"typography": {
+			"customFontSize": true,
+			"dropCap": false,
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{
+					"slug": "sans",
+					"name": "Sans",
+					"fontFamily": "Arial, Helvetica, sans-serif"
+				},
+				{
+					"slug": "serif",
+					"name": "Serif",
+					"fontFamily": "serif"
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "xs",
+					"size": "0.75rem",
+					"name": "Extra small"
+				},
+				{
+					"slug": "sm",
+					"size": "0.875rem",
+					"name": "Small"
+				},
+				{
+					"slug": "base",
+					"size": "1rem",
+					"name": "Base"
+				},
+				{
+					"slug": "lg",
+					"size": "1.125rem",
+					"name": "Large"
+				},
+				{
+					"slug": "xl",
+					"size": "1.25rem",
+					"name": "Extra large"
+				},
+				{
+					"slug": "2xl",
+					"size": "1.5rem",
+					"name": "2X large"
+				},
+				{
+					"slug": "3xl",
+					"size": "1.875rem",
+					"name": "3X large"
+				},
+				{
+					"slug": "4xl",
+					"size": "2.25rem",
+					"name": "4X large"
+				},
+				{
+					"slug": "5xl",
+					"size": "3rem",
+					"name": "5X large"
+				}
+			],
+			"lineHeight": true
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--neutral-600)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--sans)",
+			"fontSize": "var(--wp--preset--font-size--base)",
+			"lineHeight": "1.75"
+		},
+		"spacing": {
+			"padding": {
+				"left": "16px",
+				"right": "16px"
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--brand-600)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--brand-700)"
+					}
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--serif)",
+					"fontSize": "var(--wp--preset--font-size--5xl)",
+					"fontWeight": "700",
+					"lineHeight": "1.1"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--neutral-900)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--serif)",
+					"fontSize": "var(--wp--preset--font-size--4xl)",
+					"fontWeight": "700",
+					"lineHeight": "1.15"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--neutral-900)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--serif)",
+					"fontSize": "var(--wp--preset--font-size--2xl)",
+					"fontWeight": "700",
+					"lineHeight": "1.2"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--neutral-900)"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--serif)",
+					"fontSize": "var(--wp--preset--font-size--xl)",
+					"fontWeight": "700"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--neutral-900)"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--brand-600)",
+					"text": "var(--wp--preset--color--white)"
+				},
+				"border": {
+					"radius": "0.75rem"
+				},
+				"typography": {
+					"fontWeight": "700",
+					"fontSize": "var(--wp--preset--font-size--sm)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "0.875rem",
+						"bottom": "0.875rem",
+						"left": "1.5rem",
+						"right": "1.5rem"
+					}
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--brand-700)"
+					}
+				}
+			}
+		}
+	}
+}

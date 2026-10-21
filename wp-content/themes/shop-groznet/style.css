@@ -1,0 +1,62 @@
+/*
+Theme Name:        Shop GrozNet
+Theme URI:         https://groznet.ru/
+Author:            GrozNet
+Author URI:        https://groznet.ru/
+Description:       Classic WooCommerce theme for GrozNet. Tailwind (browser runtime) + Alpine.js, matching the GrozNet static site design tokens. Bilingual (Russian / English).
+Version:           1.0.0
+Requires at least: 6.0
+Tested up to:      6.6
+Requires PHP:      7.4
+License:           GNU General Public License v2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       shop-groznet
+Domain Path:       /languages
+Tags:              e-commerce, translation-ready, custom-menu, right-sidebar, dark-mode
+WC requires at least: 7.0
+WC tested up to:   9.4
+*/
+
+/*
+ * Presentation lives in Tailwind utility classes on the markup, plus
+ * assets/css/theme.css and assets/css/woocommerce.css (loaded from
+ * inc/enqueue.php). This file only carries the theme header that
+ * WordPress requires, and a couple of rules that must exist before
+ * any JS runs.
+ */
+
+/* Alpine cloaking. Must apply before Alpine boots, so it lives here. */
+[x-cloak] {
+	display: none !important;
+}
+
+/* Accessibility: visually hidden text, WordPress core convention. */
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #ffffff;
+	clip-path: none;
+	color: #1d4ed8; /* brand-700 */
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 1rem;
+	line-height: normal;
+	padding: 0.75rem 1.25rem;
+	text-decoration: none;
+	top: 1rem;
+	width: auto;
+	z-index: 100000;
+	border-radius: 0.75rem; /* rounded-xl */
+}

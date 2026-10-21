@@ -1,0 +1,41 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Secrets and environment-specific config (DB credentials, salts)
+wp-config.php
+
+# Logs
+*.log
+wp-content/debug.log
+wp-content/uploads/wc-logs/*
+!wp-content/uploads/wc-logs/.htaccess
+!wp-content/uploads/wc-logs/index.html
+
+# Runtime / generated
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+wp-content/cache/
+wp-content/uploads/cache/
+wp-content/uploads/woocommerce_uploads/*
+!wp-content/uploads/woocommerce_uploads/.htaccess
+!wp-content/uploads/woocommerce_uploads/index.html
+wp-content/uploads/wc-imports/*
+!wp-content/uploads/wc-imports/.htaccess
+!wp-content/uploads/wc-imports/index.html
+
+# Theme archives and backups
+*.zip
+wp-content/themes/bkp_*/
+
+# Local by Flywheel
+local-xdebuginfo.php
+
+# Dependencies
+node_modules/
+vendor/bin/
+
+# Payment plugin cache
+wp-content/uploads/yookassa-cache/
