@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 	$sgz_nav  = array(
 		'/'         => 'Главная',
 		'/services' => 'Услуги',
-		'/catalog'  => 'Каталог',
+		'https://shop.groznet.com/' => 'Каталог',
 		'/projects' => 'Наши Проекты',
 		'/partners' => 'Партнеры',
 		'http://blog.groznet.com/' => 'Блог и новости',

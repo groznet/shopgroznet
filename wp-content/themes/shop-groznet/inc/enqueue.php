@@ -188,7 +188,7 @@ function sgz_enqueue_assets() {
 
 	// Theme stylesheet (header + the handful of rules Tailwind cannot express).
 	wp_enqueue_style( 'sgz-style', get_stylesheet_uri(), array(), SGZ_VERSION );
-	wp_enqueue_style( 'sgz-theme', get_theme_file_uri( 'assets/css/theme.css' ), array( 'sgz-style' ), SGZ_VERSION );
+	wp_enqueue_style( 'sgz-theme', get_theme_file_uri( 'assets/css/theme.css' ), array( 'sgz-style' ), sgz_asset_version( 'assets/css/theme.css' ) );
 
 	/*
 	 * The brand ramp as CSS custom properties, generated from the same array
@@ -217,7 +217,7 @@ function sgz_enqueue_assets() {
 	);
 
 	if ( class_exists( 'WooCommerce' ) ) {
-		wp_enqueue_style( 'sgz-woocommerce', get_theme_file_uri( 'assets/css/woocommerce.css' ), array( 'sgz-theme' ), SGZ_VERSION );
+		wp_enqueue_style( 'sgz-woocommerce', get_theme_file_uri( 'assets/css/woocommerce.css' ), array( 'sgz-theme' ), sgz_asset_version( 'assets/css/woocommerce.css' ) );
 
 		wp_enqueue_script(
 			'sgz-woocommerce',
@@ -319,3 +319,15 @@ function sgz_fontawesome_kit_tag( $tag, $handle ) {
 	return $tag;
 }
 add_filter( 'script_loader_tag', 'sgz_fontawesome_kit_tag', 10, 2 );
+
+/**
+ * Cache-busting version for a theme asset: the file's modification time, so
+ * a deploy changes the URL without bumping SGZ_VERSION by hand.
+ *
+ * @param string $path Path relative to the theme root.
+ * @return string
+ */
+function sgz_asset_version( $path ) {
+	$file = get_theme_file_path( $path );
+	return file_exists( $file ) ? SGZ_VERSION . '.' . filemtime( $file ) : SGZ_VERSION;
+}
